@@ -4,14 +4,16 @@
 <hr />
 <div class="row">
   <div class="col text-right">
-    <button  routerLink="/heroe/nuevo" class="btn btn-primary">
+    <button routerLink="/heroe/nuevo" class="btn btn-primary">
       <i class="fa fa-plus"></i>
       Agregar
     </button>
   </div>
 </div>
-<table *ngIf="!cargando && heroes.length > 0"
-       class="table mt-3 animated fadeIn faster">
+<table
+  *ngIf="!cargando && heroes.length > 0"
+  class="table mt-3 animated fadeIn faster"
+>
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -22,8 +24,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let heroe of heroes; let i=index">
-      <th scope="row">{{i+1}}</th>
+    <tr *ngFor="let heroe of heroes; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
       <td>{{ heroe.nombre }}</td>
       <td>{{ heroe.poder }}</td>
       <td>
@@ -31,36 +33,36 @@
         <label *ngIf="!heroe.vivo" class="badge badge-danger"> Muerto </label>
       </td>
       <td>
-        <button class="btn btn-info mr-1"
-                [routerLink]="['/heroe', heroe.id]">
-          <i class="fa fa-pen" ></i>
+        <button class="btn btn-info mr-1" [routerLink]="['/heroe', heroe.id]">
+          <i class="fa fa-pen"></i>
         </button>
 
-        <button class="btn btn-danger"
-                (click)="borraHeroe(heroe, i)">
-          <i class="fa fa-trash" ></i>
+        <button class="btn btn-danger" (click)="borraHeroe(heroe, i)">
+          <i class="fa fa-trash"></i>
         </button>
-
-
       </td>
     </tr>
   </tbody>
 </table>
 
-<div  *ngIf="!cargando && heroes.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faste">
-  <h4 class="alert-heading" > No hay registros </h4>
+<div
+  *ngIf="!cargando && heroes.length === 0"
+  class="alert alert-warning text-center mt-3 animated fadeIn faste"
+>
+  <h4 class="alert-heading">No hay registros</h4>
   <p>
-    <i class="fa fa-exclamation  fa-3x" ></i>
+    <i class="fa fa-exclamation fa-3x"></i>
   </p>
 </div>
 
-<div *ngIf="cargando"  class="alert alert-info text-center mt-3 animated fadeIn faster">
-  <h4 class="alert-heading" > Cargando </h4>
-  <br>
+<div
+  *ngIf="cargando"
+  class="alert alert-info text-center mt-3 animated fadeIn faster"
+>
+  <h4 class="alert-heading">Cargando</h4>
+  <br />
   <p>
-    <i class="fa fa-sync fa-spin fa-3x fa-fw" ></i>
+    <i class="fa fa-sync fa-spin fa-3x fa-fw"></i>
   </p>
-  <p class="mb-0">
-    Espere por favor...
-  </p>
+  <p class="mb-0">Espere por favor...</p>
 </div>
